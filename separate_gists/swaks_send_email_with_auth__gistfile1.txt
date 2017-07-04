@@ -1,0 +1,11 @@
+
+
+##################################################################################################
+# description:  swaks send email with auth
+# raw_url:      https://gist.githubusercontent.com/mrkafk/ad40b5db844b954afc1ef990597d6c45/raw/d54449469cc6ca461ef27567ee036571e4d151d9/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+swaks -f sender -t recipient --header "Subject: problem on `hostname`" --body "$TMP" -s mailserver -a PLAIN -au username -ap password
+
+

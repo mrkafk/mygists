@@ -1,0 +1,11 @@
+
+
+##################################################################################################
+# description:  debug exim foreground
+# raw_url:      https://gist.githubusercontent.com/mrkafk/37aee6647566a9c3bacc6f16f51f64be/raw/59847244c1f133e57f3d2992532bfe280de43c64/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+exim -bd -d
+
+

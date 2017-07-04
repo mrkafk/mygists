@@ -1,0 +1,11 @@
+
+
+##################################################################################################
+# description:  git: To get commits (all and output one line per commit)
+# raw_url:      https://gist.githubusercontent.com/mrkafk/2b3a4773bc4f0195fd06/raw/b0908d100b43042cb0c9730fdccc65e940e06ee7/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+git rev-list --all --pretty=oneline
+
+

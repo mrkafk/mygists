@@ -1,0 +1,11 @@
+
+
+##################################################################################################
+# description:  python: profile cumulative time
+# raw_url:      https://gist.githubusercontent.com/mrkafk/31b12150e5cff9a08041/raw/f35df89811a584e106d4f221805d20a4540b835b/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+python -m cProfile -s cumulative logwatch.py
+
+

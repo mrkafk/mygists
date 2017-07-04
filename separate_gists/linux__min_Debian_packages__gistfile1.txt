@@ -1,0 +1,11 @@
+
+
+##################################################################################################
+# description:  linux: min Debian packages
+# raw_url:      https://gist.githubusercontent.com/mrkafk/ded5f3eb2933b83e8fd0/raw/32b65dc1a37846b8b298d10510dbdde3868e72a9/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+lsb-release vim python python-dev bzr gdb tcpdump openssh-server build-essential gawk debhelper autoconf libtool devscripts dnsutils wget psmisc apt-file locate
+
+

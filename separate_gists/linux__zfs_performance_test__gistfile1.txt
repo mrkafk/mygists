@@ -1,0 +1,12 @@
+
+
+##################################################################################################
+# description:  linux: zfs performance test
+# raw_url:      https://gist.githubusercontent.com/mrkafk/5cfcef66529a04a7a7e9/raw/cf65c847226210d97c9b625312a7db0b278a9cc6/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+zfs create -o dedup=on -o compression=lz4 -o recordsize=32K testzfs/test32k; cd /testzfs/test32k; time qemu-img convert -O raw /dev/vg/contractor testcontractor.raw; echo; zfs get compressratio testzfs/test32k; echo; zpool list;  zdb -b testzfs; zdb -DD testzfs; echo; echo; echo "###########################"; time qemu-img convert -O raw /dev/vg/w7c testw7c.raw; zfs get compressratio testzfs/test32k; echo; zpool list; zdb -b testzfs; zdb -DD testzfs
+
+
+

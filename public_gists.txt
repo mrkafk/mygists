@@ -1,0 +1,475 @@
+
+
+##################################################################################################
+# description:  Delete files only from directory, one level
+# raw_url:      https://gist.githubusercontent.com/mrkafk/f533e7c8a91d423e31dbcffff52fbeab/raw/0c3831c82ebaa6d279d9409342a4d977370bedf2/gistfile1.py
+# filename:     gistfile1.py
+
+
+import os
+import shutil
+
+def purge_files_in_folder(folder):
+    for the_file in os.listdir(folder):
+        file_path = os.path.join(folder, the_file)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+        except Exception as e:
+            print(e)
+
+
+
+
+##################################################################################################
+# description:  sane filename py
+# raw_url:      https://gist.githubusercontent.com/mrkafk/18e8edf66578aee8e659c6c18511d3f5/raw/d543b6a3e17620198a2b2fa0d197a89aaf699b9e/gistfile1.py
+# filename:     gistfile1.py
+
+
+filename_chars = string.ascii_letters + string.digits + '_.'
+
+def sane_filename(fname):
+    return ''.join([c if c in filename_chars else '_' for c in fname])
+
+
+
+
+
+##################################################################################################
+# description:  app top dir
+# raw_url:      https://gist.githubusercontent.com/mrkafk/603abd9978945806215711f08cd66699/raw/1a682a14b08df0aafdc5151f2f167aabb7c8271a/app_top_dir.py
+# filename:     app_top_dir.py
+
+
+import os
+pyfile_top_dir = os.path.dirname(os.path.abspath(__file__))
+
+
+
+
+
+##################################################################################################
+# description:  debug exim foreground
+# raw_url:      https://gist.githubusercontent.com/mrkafk/37aee6647566a9c3bacc6f16f51f64be/raw/59847244c1f133e57f3d2992532bfe280de43c64/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+exim -bd -d
+
+
+
+
+##################################################################################################
+# description:  swaks send email with auth
+# raw_url:      https://gist.githubusercontent.com/mrkafk/ad40b5db844b954afc1ef990597d6c45/raw/d54449469cc6ca461ef27567ee036571e4d151d9/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+swaks -f sender -t recipient --header "Subject: problem on `hostname`" --body "$TMP" -s mailserver -a PLAIN -au username -ap password
+
+
+
+
+##################################################################################################
+# description:  Set up Python logging
+# raw_url:      https://gist.githubusercontent.com/mrkafk/44b22ea8dc573ac28270b56aabc69172/raw/8cba7e0a63f514421bccf2021c8874a235cb3e45/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+LEVEL = logging.getLevelName(os.getenv('LOG_LEVEL', 'INFO').upper())
+LOG = logging.getLogger(__name__)
+LOG.setLevel(LEVEL)
+
+HANDLER = logging.StreamHandler()
+HANDLER.setLevel(LEVEL)
+HANDLER.setFormatter(logging.Formatter(
+    '%(asctime)s %(name)s:%(lineno)d %(funcName)s %(levelname)s | %(message)s'
+))
+
+LOG.addHandler(HANDLER)
+
+
+
+
+##################################################################################################
+# description:  strip versions from requirements.txt
+# raw_url:      https://gist.githubusercontent.com/mrkafk/d4530a5dcd957a24a0a0/raw/e5a9f0165298688b0cb0713bd22e06c12fef1b95/strip_requirements_vers.py
+# filename:     strip_requirements_vers.py
+
+
+#!/usr/bin/env python
+
+import sys
+
+def find_requirements_file():
+    try:
+        fo = open('requirements.txt', 'rb')
+    except OSError:
+        print >>sys.stderr, 'File requirements.txt not found'
+        sys.exit(1)
+    return fo
+
+def strip_vers(fo):
+    lines = [line.split('=') for line in fo]
+    return filter(None, [line[0] for line in lines])
+
+def write_reqs_nover():
+    fo = find_requirements_file()
+    vers = strip_vers(fo)
+    outfname = 'requirements_nover.txt'
+    with open(outfname, 'wb') as fo:
+        fo.write('\n'.join(vers))
+    print >>sys.stderr, 'Wrote output to', outfname
+
+if __name__ == '__main__':
+    write_reqs_nover()
+
+
+
+
+
+##################################################################################################
+# description:  Python flatten list
+# raw_url:      https://gist.githubusercontent.com/mrkafk/18cb03061a6d524521ab/raw/e8691190d5ca1c5f5cd0c2ddf1a86dc12d07aeae/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+def flatten(lst):
+    flat = []
+    for x in lst:
+        if hasattr(x, '__iter__') and not isinstance(x, basestring):
+            flat.extend(flatten(x))
+        else:
+            flat.append(x)
+    return flat
+
+
+
+
+##################################################################################################
+# description:  bash: current dir advanced
+# raw_url:      https://gist.githubusercontent.com/mrkafk/aa07a5fd683dea6b661f/raw/4dea6148bdd714ae98095d10b2219c0d2bf17fd4/curdir.sh
+# filename:     curdir.sh
+
+
+
+# based on http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SCRIPTDIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+
+
+
+##################################################################################################
+# description:  python: fast gzip gunzip mkfifo
+# raw_url:      https://gist.githubusercontent.com/mrkafk/3c6eab5ca112e45d0781/raw/19079da75b8a50bc60225db2b2ab656c443c10db/gistfile1.py
+# filename:     gistfile1.py
+
+
+
+#http://www.code-corner.de/?p=153
+
+    import os
+    import subprocess
+
+    tmp_fifo = "tmp_fifo"
+
+    os.mkfifo(tmp_fifo)
+
+    p = subprocess.Popen("gzip --stdout -d traj.pdb.gz > %s" % tmp_fifo, shell=True)
+    f = io.open(tmp_fifo, "r")
+
+    while True:
+        line = f.readline()
+        if not line: break
+
+    f.close()
+    p.wait()
+
+    os.remove(tmp_fifo)
+
+
+
+
+##################################################################################################
+# description:  shell, bash: dir of executing script
+# raw_url:      https://gist.githubusercontent.com/mrkafk/86f17dbdba71966637b7/raw/27226e36d1be8a2768b5d1d57102a47e7b499fc1/gistfile1.sh
+# filename:     gistfile1.sh
+
+
+CURD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd "$CURD"
+
+
+
+
+
+##################################################################################################
+# description:  shell, bash: loop
+# raw_url:      https://gist.githubusercontent.com/mrkafk/a8c1a0cf4c5fad3813c1/raw/e45cc463ca973a32f1c590da5e64a82c5b639c5a/gistfile1.sh
+# filename:     gistfile1.sh
+
+
+for i in {1..100}; do echo ${i}; done
+
+
+
+
+##################################################################################################
+# description:  shell: scp upload in parallel batches
+# raw_url:      https://gist.githubusercontent.com/mrkafk/3389ef792d855ee38ea9/raw/4703c6b9968530145533ab5dc40e2c26d8e51b34/gistfile1.sh
+# filename:     gistfile1.sh
+
+
+FLIST=file_paths_list.txt
+
+COUNTER=0
+PIDS=()
+
+cat ${FLIST} | while read F; do
+                COUNTER=$((COUNTER + 1))
+                echo COUNTER $COUNTER
+                sleep 1
+                scp ${F} root@host:/data/tmp &
+                PID=$!
+                echo Adding PID $PID
+                PIDS+=($PID)
+                if [ $COUNTER -lt 20 ]; then
+                        continue
+                fi
+                # wait for uploads batch to complete
+                for PID in ${PIDS[@]}; do
+                        echo waiting for PID $PID
+                        wait $PID
+                done
+                # reset PIDS array
+                PIDS=()
+                COUNTER=0
+done
+
+
+
+
+
+##################################################################################################
+# description:  shell, awk: numeric sum of lines in a file
+# raw_url:      https://gist.githubusercontent.com/mrkafk/cd24c864bd04bae83e34/raw/aa4f9d8391f4e179092b2e8ae00c15362c3997a0/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+awk '{s+=$1} END {print s}' /tmp/numbers
+
+
+
+
+
+##################################################################################################
+# description:  mysql: admin privileges
+# raw_url:      https://gist.githubusercontent.com/mrkafk/7d419b84f1e67c05c781/raw/404fb2432135a185d032b09dac8b472b93d1a37b/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+UPDATE mysql.user SET Select_priv='Y', Insert_priv='Y',Update_priv='Y',Delete_priv='Y', Create_priv='Y',Drop_priv='Y',Reload_priv='Y',Shutdown_priv='Y', Process_priv='Y',File_priv='Y',Grant_priv='Y',References_priv='Y', Index_priv='Y',Alter_priv='Y',Show_db_priv='Y',Super_priv='Y', Create_tmp_table_priv='Y',Lock_tables_priv='Y',Execute_priv='Y', Repl_slave_priv='Y',Repl_client_priv='Y',Create_view_priv='Y', Show_view_priv='Y',Create_routine_priv='Y',Alter_routine_priv='Y', Create_user_priv='Y',Event_priv='Y',Trigger_priv='Y' WHERE User='root';
+
+flush privileges;
+
+
+
+
+
+##################################################################################################
+# description:  linux: zfs performance test
+# raw_url:      https://gist.githubusercontent.com/mrkafk/5cfcef66529a04a7a7e9/raw/cf65c847226210d97c9b625312a7db0b278a9cc6/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+zfs create -o dedup=on -o compression=lz4 -o recordsize=32K testzfs/test32k; cd /testzfs/test32k; time qemu-img convert -O raw /dev/vg/contractor testcontractor.raw; echo; zfs get compressratio testzfs/test32k; echo; zpool list;  zdb -b testzfs; zdb -DD testzfs; echo; echo; echo "###########################"; time qemu-img convert -O raw /dev/vg/w7c testw7c.raw; zfs get compressratio testzfs/test32k; echo; zpool list; zdb -b testzfs; zdb -DD testzfs
+
+
+
+
+
+##################################################################################################
+# description:  ssh: port forwarding - reverse tunnel
+# raw_url:      https://gist.githubusercontent.com/mrkafk/edfe03d5fbee47b57ea3/raw/dd35f27153a14da3dec9d3a869a8e293ef633455/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+ssh -X -R remote:60200:localhost:22 root@remote
+
+
+
+
+##################################################################################################
+# description:  shell: xargs parallel /parallel
+# raw_url:      https://gist.githubusercontent.com/mrkafk/e0c89f045443da0cbed0/raw/84a2f4065725b5de656776f5c81096acde2390d0/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+cat flist | tr '\n' '\000'  | xargs -t --null -P 5 -n 5 quot.sh
+
+
+
+
+##################################################################################################
+# description:  linux debian: sort installed packages by size
+# raw_url:      https://gist.githubusercontent.com/mrkafk/e4f67c8292f6d35f3b32/raw/df60f1b2b1512d5074a28b189a3136104e40647f/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+dpkg-query -W -f='${Installed-Size} ${Package}\n' | sort -n
+
+
+
+
+##################################################################################################
+# description:  linux: min Debian packages
+# raw_url:      https://gist.githubusercontent.com/mrkafk/ded5f3eb2933b83e8fd0/raw/32b65dc1a37846b8b298d10510dbdde3868e72a9/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+lsb-release vim python python-dev bzr gdb tcpdump openssh-server build-essential gawk debhelper autoconf libtool devscripts dnsutils wget psmisc apt-file locate
+
+
+
+
+##################################################################################################
+# description:  python: excepthook with pm postmortem pdb python
+# raw_url:      https://gist.githubusercontent.com/mrkafk/b21131df0c54236088b4/raw/bb51b5ce1afa52ab2481a570df4916ec454bc2b2/gistfile1.py
+# filename:     gistfile1.py
+
+
+
+
+#!/usr/bin/python
+
+import sys
+import traceback
+import pdb
+
+def excepthook(typ, value, tb):
+    traceback.print_exception(typ, value, tb)
+    pdb.pm()
+
+sys.excepthook = excepthook
+
+x = 3.0
+y = 0.0
+print x/y
+def div(a, b):
+    return a / b
+print div(x,y)
+
+
+
+
+
+##################################################################################################
+# description:  linux cold cache /drop cache 
+# raw_url:      https://gist.githubusercontent.com/mrkafk/3e971858f4ad3b77ec1e/raw/8567c4185497052b2f9f65c2c9d8748a1b7bcede/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+sync; echo 3 > /proc/sys/vm/drop_caches
+
+
+
+
+##################################################################################################
+# description:  python: profile cumulative time
+# raw_url:      https://gist.githubusercontent.com/mrkafk/31b12150e5cff9a08041/raw/f35df89811a584e106d4f221805d20a4540b835b/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+python -m cProfile -s cumulative logwatch.py
+
+
+
+
+##################################################################################################
+# description:  get public nat ip from command line
+# raw_url:      https://gist.githubusercontent.com/mrkafk/272c417c17b34b5a380f/raw/c3cb4c92ce2cedda1adaec5475ffa5c78166df30/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+links -dump http://www.formyip.com/ | awk "/IP is/{print $NF}"
+
+
+
+
+##################################################################################################
+# description:  tshark wireshark: capture by port and sort by ips
+# raw_url:      https://gist.githubusercontent.com/mrkafk/a5dfc09c8ef0ba65414d/raw/d553786a7f8649460620b0c881fd1fe49eacca71/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+tshark -f "host 10.0.0.183 and (not port 40183)" -i eth0 -w /tmp/filename.tshark
+tshark -r /tmp/filename.tshark -T fields -e ip.dst ip.src  sort
+
+
+
+
+
+##################################################################################################
+# description:  python: simple http server
+# raw_url:      https://gist.githubusercontent.com/mrkafk/d13c6d45a71311abcc7a/raw/9d488913d8c7cf87ab42962242854d259cf45eab/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+python -m SimpleHTTPServer $PORT
+
+
+
+
+##################################################################################################
+# description:  python: fake SMTP server
+# raw_url:      https://gist.githubusercontent.com/mrkafk/20a93515697efaa8de72/raw/8c44165a943e5316f8f264b4bef52c5e472fbd67/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+python -m smtpd -n -c DebuggingServer localhost:25
+
+
+
+
+##################################################################################################
+# description:  git: How do I reset/revert a specific file to a specific revision using Git?
+# raw_url:      https://gist.githubusercontent.com/mrkafk/801ac2e780d62784eb23/raw/6db770a8aa7409c2cf659bb26e3ef07f42813b68/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+git checkout 08618129e66127921fbfcbc205a06153c92622fe -- [full/path]
+
+
+
+
+##################################################################################################
+# description:  git: To get commits (all and output one line per commit)
+# raw_url:      https://gist.githubusercontent.com/mrkafk/2b3a4773bc4f0195fd06/raw/b0908d100b43042cb0c9730fdccc65e940e06ee7/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+git rev-list --all --pretty=oneline
+
+
+
+
+##################################################################################################
+# description:  shell In bash, to read a whole file into a variable without invoking cat
+# raw_url:      https://gist.githubusercontent.com/mrkafk/b12e8ff749d8dc04cf19/raw/9ef76a61c5a3fa0b85756559d932425b70c8ba52/gistfile1.sh
+# filename:     gistfile1.sh
+
+
+#!/bin/bash
+value=$(<config.txt)
+echo "$value"
+
+
+

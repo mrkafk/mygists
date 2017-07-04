@@ -1,0 +1,11 @@
+
+
+##################################################################################################
+# description:  linux debian: sort installed packages by size
+# raw_url:      https://gist.githubusercontent.com/mrkafk/e4f67c8292f6d35f3b32/raw/df60f1b2b1512d5074a28b189a3136104e40647f/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+dpkg-query -W -f='${Installed-Size} ${Package}\n' | sort -n
+
+

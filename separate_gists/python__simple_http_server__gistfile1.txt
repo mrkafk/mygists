@@ -1,0 +1,11 @@
+
+
+##################################################################################################
+# description:  python: simple http server
+# raw_url:      https://gist.githubusercontent.com/mrkafk/d13c6d45a71311abcc7a/raw/9d488913d8c7cf87ab42962242854d259cf45eab/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+python -m SimpleHTTPServer $PORT
+
+

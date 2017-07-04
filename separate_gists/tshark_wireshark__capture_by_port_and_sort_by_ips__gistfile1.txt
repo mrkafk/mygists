@@ -1,0 +1,13 @@
+
+
+##################################################################################################
+# description:  tshark wireshark: capture by port and sort by ips
+# raw_url:      https://gist.githubusercontent.com/mrkafk/a5dfc09c8ef0ba65414d/raw/d553786a7f8649460620b0c881fd1fe49eacca71/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+tshark -f "host 10.0.0.183 and (not port 40183)" -i eth0 -w /tmp/filename.tshark
+tshark -r /tmp/filename.tshark -T fields -e ip.dst ip.src  sort
+
+
+

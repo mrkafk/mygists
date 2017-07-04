@@ -1,0 +1,21 @@
+
+
+##################################################################################################
+# description:  Set up Python logging
+# raw_url:      https://gist.githubusercontent.com/mrkafk/44b22ea8dc573ac28270b56aabc69172/raw/8cba7e0a63f514421bccf2021c8874a235cb3e45/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+LEVEL = logging.getLevelName(os.getenv('LOG_LEVEL', 'INFO').upper())
+LOG = logging.getLogger(__name__)
+LOG.setLevel(LEVEL)
+
+HANDLER = logging.StreamHandler()
+HANDLER.setLevel(LEVEL)
+HANDLER.setFormatter(logging.Formatter(
+    '%(asctime)s %(name)s:%(lineno)d %(funcName)s %(levelname)s | %(message)s'
+))
+
+LOG.addHandler(HANDLER)
+
+
