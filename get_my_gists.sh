@@ -12,12 +12,9 @@ cd "$SCRIPTDIR"
 
 . ve/bin/activate
 
-#./get_my_gists.py
+./get_my_gists.py
 
 date
 git add .
 git commit -m "gists on `date`"
 ssh-agent bash -c 'cd "$SCRIPTDIR"; ssh-add /Users/mark/.ssh/id_rsa_gh; git push'
-#ssh -i /Users/mark/.ssh/id_rsa_gh -Tvvv mrkafk@github.com
-
-
