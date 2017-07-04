@@ -17,5 +17,6 @@ cd "$SCRIPTDIR"
 date
 git add .
 git commit -m "gists on `date`"
+export HOME=/Users/mark
 PKEY=~/.ssh/id_rsa_gh git push
 
