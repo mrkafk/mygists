@@ -19,4 +19,4 @@ git add .
 git commit -m "gists on `date`"
 export HOME=/Users/mark
 # git push
-PKEY=~/.ssh/id_rsa_gh ssh -Tvvv mrkafk@github.com
+PKEY=~/.ssh/id_rsa_gh ssh -i /Users/mark/.ssh/id_rsa_gh -Tvvv mrkafk@github.com
