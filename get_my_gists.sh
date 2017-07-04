@@ -1,4 +1,4 @@
-#!/bin/bash -i -x
+#!/bin/bash
 
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
@@ -17,7 +17,5 @@ cd "$SCRIPTDIR"
 date
 git add .
 git commit -m "gists on `date`"
-# export HOME=/Users/mark
-GIT_SSH=/Users/mark/bin/git_ssh_github.sh
-git push
+ssh-agent bash -c 'cd "$SCRIPTDIR"; ssh-add /Users/mark/.ssh/id_rsa_gh; git push'
 #ssh -i /Users/mark/.ssh/id_rsa_gh -Tvvv mrkafk@github.com
