@@ -21,4 +21,3 @@ git commit -m "gists on `date`"
 GIT_SSH=/Users/mark/bin/git_ssh_github.sh
 
 git push
-
