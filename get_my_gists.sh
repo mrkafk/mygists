@@ -12,11 +12,12 @@ cd "$SCRIPTDIR"
 
 . ve/bin/activate
 
-./get_my_gists.py
+#./get_my_gists.py
 
 date
 git add .
 git commit -m "gists on `date`"
-export HOME=/Users/mark
-# git push
-PKEY=~/.ssh/id_rsa_gh ssh -i /Users/mark/.ssh/id_rsa_gh -Tvvv mrkafk@github.com
+# export HOME=/Users/mark
+GIT_SSH=/Users/mark/bin/git_ssh_github.sh
+git push
+#ssh -i /Users/mark/.ssh/id_rsa_gh -Tvvv mrkafk@github.com
