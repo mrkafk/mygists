@@ -394,7 +394,7 @@ python -m cProfile -s cumulative logwatch.py
 
 
 ##################################################################################################
-# description:  get public nat ip from command line
+# description:  linux get public nat ip from command line
 # raw_url:      https://gist.githubusercontent.com/mrkafk/272c417c17b34b5a380f/raw/c3cb4c92ce2cedda1adaec5475ffa5c78166df30/gistfile1.txt
 # filename:     gistfile1.txt
 
