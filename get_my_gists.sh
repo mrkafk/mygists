@@ -14,7 +14,7 @@ cd "$SCRIPTDIR"
 
 ./get_my_gists.py
 
+date
 git add .
 git commit -m "gists on `date`"
-GIT_SSH=/Users/mark/bin/git_ssh_github.sh
-git push
+PKEY=~/.ssh/id_rsa_gh git push
