@@ -1,7 +1,7 @@
 
 
 ##################################################################################################
-# description:  Set up Python logging
+# description:  python Set up logging
 # raw_url:      https://gist.githubusercontent.com/mrkafk/44b22ea8dc573ac28270b56aabc69172/raw/8cba7e0a63f514421bccf2021c8874a235cb3e45/gistfile1.txt
 # filename:     gistfile1.txt
 

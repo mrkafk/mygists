@@ -1,7 +1,7 @@
 
 
 ##################################################################################################
-# description:  strip versions from requirements.txt
+# description:  python strip versions from requirements.txt
 # raw_url:      https://gist.githubusercontent.com/mrkafk/d4530a5dcd957a24a0a0/raw/e5a9f0165298688b0cb0713bd22e06c12fef1b95/strip_requirements_vers.py
 # filename:     strip_requirements_vers.py
 

@@ -1,7 +1,7 @@
 
 
 ##################################################################################################
-# description:  Delete files only from directory, one level
+# description:  python  Delete files only from directory, one level
 # raw_url:      https://gist.githubusercontent.com/mrkafk/f533e7c8a91d423e31dbcffff52fbeab/raw/0c3831c82ebaa6d279d9409342a4d977370bedf2/gistfile1.py
 # filename:     gistfile1.py
 

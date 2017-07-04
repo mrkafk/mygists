@@ -1,7 +1,7 @@
 
 
 ##################################################################################################
-# description:  Python flatten list
+# description:  python flatten list
 # raw_url:      https://gist.githubusercontent.com/mrkafk/18cb03061a6d524521ab/raw/e8691190d5ca1c5f5cd0c2ddf1a86dc12d07aeae/gistfile1.txt
 # filename:     gistfile1.txt
 
