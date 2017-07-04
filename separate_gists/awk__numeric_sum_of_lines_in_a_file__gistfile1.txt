@@ -1,7 +1,7 @@
 
 
 ##################################################################################################
-# description:  shell, awk: numeric sum of lines in a file
+# description:  awk: numeric sum of lines in a file
 # raw_url:      https://gist.githubusercontent.com/mrkafk/cd24c864bd04bae83e34/raw/aa4f9d8391f4e179092b2e8ae00c15362c3997a0/gistfile1.txt
 # filename:     gistfile1.txt
 

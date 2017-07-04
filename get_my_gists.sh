@@ -14,3 +14,9 @@ cd "$SCRIPTDIR"
 
 ./get_my_gists.py
 
+git add .
+
+git commit -m "gists on `date`"
+
+git push
+
