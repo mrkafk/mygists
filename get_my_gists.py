@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import requests
 import codecs
@@ -42,7 +42,7 @@ def get_user_pub_gists(username):
                 fname = f['filename']
                 raw_url = f['raw_url']
                 cnt = requests.get(raw_url)
-                print 'fname', fname, 'raw_url', raw_url
+                print('fname', fname, 'raw_url', raw_url)
                 s = '''
 
 ##################################################################################################
