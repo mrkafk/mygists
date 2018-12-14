@@ -1,0 +1,22 @@
+
+
+##################################################################################################
+# description:  bash get file extension
+# raw_url:      https://gist.githubusercontent.com/mrkafk/01747537cfacec2d0311495357d97a2a/raw/bada97b7e89b08785cc4f287f5dd22672bcc8ee6/null
+# filename:     null
+
+
+get file name without the path:
+
+filename=$(basename -- "$fullfile")
+extension="${filename##*.}"
+filename="${filename%.*}"
+
+Alternatively, you can focus on the last '/' of the path instead of the '.' which should work even if you have unpredictable file extensions:
+
+filename="${fullfile##*/}"
+
+
+
+
+                

@@ -34,6 +34,7 @@ def get_user_pub_gists(username):
     req = requests.get('https://api.github.com/users/{}/gists'.format(username))
     gists = req.json()
     purge_files_in_folder(os.sep.join([pyfile_top_dir, 'separate_gists']))
+    fcnt = 0
     with codecs.open('public_gists.txt', mode='wb', encoding='utf-8', errors='replace') as fo:
         for g in gists:
             description = g['description']
@@ -53,15 +54,16 @@ def get_user_pub_gists(username):
 
 {}
 
-
-'''.format(description, raw_url, fname, cnt.text)
+                '''.format(description, raw_url, fname, cnt.text)
                 fo.write(s)
                 sep_gist = sane_filename(description) + '__' + fname
                 p = os.sep.join([pyfile_top_dir, 'separate_gists', sep_gist])
                 with codecs.open(p, mode='wb', encoding='utf-8', errors='replace') as sgfo:
                     sgfo.write(s)
+                    fcnt += 1
                 # from IPython import embed
                 # embed()
+        print(f'Wrote {fcnt} gists files')
 
 
 def flow():

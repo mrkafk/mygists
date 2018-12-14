@@ -8,4 +8,4 @@
 
 swaks -f sender -t recipient --header "Subject: problem on `hostname`" --body "$TMP" -s mailserver -a PLAIN -au username -ap password
 
-
+                

@@ -1,0 +1,12 @@
+
+
+##################################################################################################
+# description:  linux bash tar certain file types in all subdirectories
+# raw_url:      https://gist.githubusercontent.com/mrkafk/b577b04ab50d4a1cbc0f49780fb982a0/raw/0a2ed2d84e2d71bee76bf45c42dccbf90bec92db/find_tar.txt
+# filename:     find_tar.txt
+
+
+find ./someDir -name "*.php" -o -name "*.html" | tar -cf my_archive -T -
+
+
+                

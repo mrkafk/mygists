@@ -1,0 +1,13 @@
+
+
+##################################################################################################
+# description:  sed: remove substring from found to the end of string
+# raw_url:      https://gist.githubusercontent.com/mrkafk/555739f5d38896e5493bf929939275f3/raw/bf60dcc79704d7e822a734e3b762281537bc5874/null
+# filename:     null
+
+
+echo '/usr/local/cuda-9.2/lib64/stubs/libcuda.so' | sed -e 's/\(\/lib\).*$//g'
+
+
+
+                

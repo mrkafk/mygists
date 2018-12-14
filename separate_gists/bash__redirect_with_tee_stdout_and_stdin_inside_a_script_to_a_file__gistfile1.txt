@@ -1,0 +1,12 @@
+
+
+##################################################################################################
+# description:  bash: redirect with tee stdout and stdin inside a script to a file
+# raw_url:      https://gist.githubusercontent.com/mrkafk/bd84757814125f006e4cdfc46a1a08ae/raw/5abe08fed51a3d01c2401a731a836f1358e9554f/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+exec &> >(tee -a /var/log/rclocal.log >&1)
+
+
+                

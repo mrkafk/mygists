@@ -1,0 +1,16 @@
+
+
+##################################################################################################
+# description:  python: nested iterable as csv
+# raw_url:      https://gist.githubusercontent.com/mrkafk/80b7c6192028e4b9699edfc11a22cd20/raw/cb621871d38d34ae2fe033769522e00a20ff94ef/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+def nested_iterable_as_csv_str(iterable, csv_delim=';'):
+    '''Create .csv string out of two-level nested iterable.
+    >>> nested_iterable_as_csv_str([('a', 'b'), (1, 2)])
+    'a;b\\n1;2'
+    '''
+    return '\n'.join([csv_delim.join(map(str, x)) for x in iterable])
+
+                

@@ -18,4 +18,4 @@ def purge_files_in_folder(folder):
         except Exception as e:
             print(e)
 
-
+                

@@ -1,0 +1,13 @@
+
+
+##################################################################################################
+# description:  git show files modified between commits
+# raw_url:      https://gist.githubusercontent.com/mrkafk/bd41c798a1c4b75d67dd84ccc1595fab/raw/8e6ca30adb17a27a83b05712144d165511abd7b0/null
+# filename:     null
+
+
+it diff HEAD a922b6bd1f11b5688e087081a1a225319c7c9c96 --name-only
+.gitignore
+
+
+                

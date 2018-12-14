@@ -1,0 +1,23 @@
+
+
+##################################################################################################
+# description:  python mkdirp
+# raw_url:      https://gist.githubusercontent.com/mrkafk/d5b7dae00314cb41d25f97f771efb0dc/raw/a124f7d1d0f7395f7e9426a8bef28b9247f7fd60/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+def mkdirp(dirname):
+    ''' Equivalent of "mkdir -p" in Unix/Linux'''
+    dirname = os.path.abspath(dirname)
+    if os.path.isfile(dirname):
+        dirname = os.path.dirname(dirname)
+    try:
+        os.makedirs(dirname)
+    except OSError as exc:
+        if exc.errno == errno.EEXIST:
+            pass
+        else:
+            raise
+
+
+                

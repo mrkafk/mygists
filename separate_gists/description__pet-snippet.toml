@@ -1,0 +1,15 @@
+
+
+##################################################################################################
+# description:  description
+# raw_url:      https://gist.githubusercontent.com/mrkafk/abc6895c3ce81f7d08e83c9d16a73845/raw/8a4a014d3611a98eafde13122a403b86b7efe86c/pet-snippet.toml
+# filename:     pet-snippet.toml
+
+
+[[snippets]]
+  description = "ipython: print complete history (not just current session)"
+  command = "%hist -o -g -f ipython_history.md"
+  output = ""
+
+
+                

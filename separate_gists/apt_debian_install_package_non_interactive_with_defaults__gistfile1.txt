@@ -1,0 +1,13 @@
+
+
+##################################################################################################
+# description:  apt debian install package non-interactive with defaults
+# raw_url:      https://gist.githubusercontent.com/mrkafk/e8fda973e1c915814fca1be309a491f0/raw/1ecf9ff70014b7c4cd3fcb62628e0ee67be06b6d/gistfile1.txt
+# filename:     gistfile1.txt
+
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get -y -q install uswsusp
+
+
+                

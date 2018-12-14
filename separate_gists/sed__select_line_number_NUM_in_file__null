@@ -1,0 +1,12 @@
+
+
+##################################################################################################
+# description:  sed: select line number NUM in file
+# raw_url:      https://gist.githubusercontent.com/mrkafk/fe6245e54392771ae45d173fe170d013/raw/25ea4e23cef38a44bae5e98625b652445a45e015/null
+# filename:     null
+
+
+sed "${NUM}q;d"
+
+
+                

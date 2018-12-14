@@ -2,12 +2,11 @@
 
 ##################################################################################################
 # description:  bash: current dir advanced
-# raw_url:      https://gist.githubusercontent.com/mrkafk/aa07a5fd683dea6b661f/raw/4dea6148bdd714ae98095d10b2219c0d2bf17fd4/curdir.sh
+# raw_url:      https://gist.githubusercontent.com/mrkafk/aa07a5fd683dea6b661f/raw/44edd370bc0f6501ce848f7fa76a3128a65e1d8c/curdir.sh
 # filename:     curdir.sh
 
 
-
-# based on http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+#!/bin/bash
 
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
@@ -18,3 +17,4 @@ done
 SCRIPTDIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 
+                
